@@ -245,9 +245,12 @@ function App() {
               <select className="form-select" onChange={handleCountryChange} aria-label="Default select example">
                 <option selected>Select a Country</option>
                 <option value="worldwide">Worldwide</option>
-                {countries.map(country => (
-                  <option key={country.country} value={country.country}>{country.country}</option>
-                ))}
+                {Array.isArray(countries) &&
+                  countries.map(country => (
+                    <option key={country.country} value={country.country}>
+                      {country.country}
+                    </option>
+                  ))}
               </select>
             </div>
           </div>
@@ -269,24 +272,24 @@ function App() {
           <div className="col-md-4">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title" id='cases'>Cases for {selectedCountry === 'worldwide' ? 'Worldwide' : selectedCountry}</h4>
-                <h3>{data.cases}</h3>
+                <h4 className="card-title" id='cases'>Cases for {selectedCountry === 'worldwide' ? 'Worldwide' : selectedCountry} <br/> {data.cases}</h4>
+                {/* <h3>{data.cases}</h3> */}
               </div>
             </div>
           </div>
           <div className="col-md-4">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title" id='deaths'>Deaths for {selectedCountry === 'worldwide' ? 'Worldwide' : selectedCountry}</h4>
-                <h3>{data.deaths}</h3>
+                <h4 className="card-title" id='deaths'>Deaths for {selectedCountry === 'worldwide' ? 'Worldwide' : selectedCountry} <br/> {data.deaths}</h4>
+                {/* <h3>{data.deaths}</h3> */}
               </div>
             </div>
           </div>
           <div className="col-md-4">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title" id='recovered'>Recovered for {selectedCountry === 'worldwide' ? 'Worldwide' : selectedCountry}</h4>
-                <h3>{data.recovered}</h3>
+                <h4 className="card-title" id='recovered'>Recovered for {selectedCountry === 'worldwide' ? 'Worldwide' : selectedCountry}<br/> {data.recovered}</h4>
+                {/* <h3>{data.recovered}</h3> */}
               </div>
             </div>
           </div>
